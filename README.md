@@ -93,15 +93,6 @@ npm start
 
 ---
 
-## 🛠 Future Improvements
-
-- Add user authentication and accounts
-- Graphs to track workout trends over time
-- Mobile responsive design improvements
-- Deployment to cloud (e.g., Render, Vercel, or Heroku)
-
----
-
 ## 📃 License
 
 This project is open-source and available under the [MIT License](LICENSE).
