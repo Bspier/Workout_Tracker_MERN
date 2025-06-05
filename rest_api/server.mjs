@@ -2,10 +2,18 @@ import 'dotenv/config';
 import * as exercises from './exercises_model.mjs';
 import express from 'express';
 import { body, validationResult }  from 'express-validator';
+import cors from 'cors';
 
 const PORT = process.env.PORT || 5000
 
 const app = express();
+
+const corsOptions = {
+  origin: 'https://workout-tracker-mern-3.onrender.com', // your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: false,
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
