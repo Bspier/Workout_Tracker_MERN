@@ -4,13 +4,14 @@ import ExerciseList from '../components/ExerciseList';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const API_BASE = process.env.REACT_APP_API_BASE;
 function HomePage({setExerciseToEdit}) {
 
     const [exercises, setExercise] = useState([]);
     const navigate = useNavigate();
 
     const onDelete = async _id => {
-        const response = await fetch(`/exercises/${_id}`, {method: 'DELETE'});
+        const response = await fetch(`${API_BASE}/exercises/${_id}`, { method: 'DELETE' });
         if(response.status === 204){
             setExercise(exercises.filter(e => e._id !== _id));
         } else{
@@ -24,7 +25,7 @@ function HomePage({setExerciseToEdit}) {
     }
 
     const loadExercises = async () => {
-        const response = await fetch('/exercises');
+        const response = await fetch(`${API_BASE}/exercises`);
         const data = await response.json();
         setExercise(data);
     }

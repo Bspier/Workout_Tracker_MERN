@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+const API_BASE = process.env.REACT_APP_API_BASE;
+
 export const AddExercisePage = () => {
     const [name, setName] = useState('');
     const [reps, setReps] = useState('');
@@ -12,7 +14,7 @@ export const AddExercisePage = () => {
 
     const addExercise = async () => {
         const newExercise = {name, reps, weight, unit, date}; 
-        const response = await fetch('/exercises', {
+        const response = await fetch(`${API_BASE}/exercises`, {
             method: 'POST',
             body: JSON.stringify(newExercise),
             headers:{
